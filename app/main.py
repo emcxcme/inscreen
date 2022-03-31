@@ -27,6 +27,7 @@ def main() -> None:
     dispatcher.add_handler(about.handler)
     dispatcher.add_handler(forward.handler)
     dispatcher.add_handler(group_registration.handler)
+    dispatcher.add_handler(help.handler)
     dispatcher.add_handler(image_reception.handler)
     dispatcher.add_handler(new_member.handler)
     dispatcher.add_handler(pin.handler)
