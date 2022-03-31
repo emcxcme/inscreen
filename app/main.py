@@ -9,6 +9,7 @@ from app.handlers import (
     image_reception,
     new_member,
     start,
+    text_reception,
 )
 
 logging.basicConfig(
@@ -25,5 +26,6 @@ def main() -> None:
     dispatcher.add_handler(image_reception.handler)
     dispatcher.add_handler(new_member.handler)
     dispatcher.add_handler(start.handler)
+    dispatcher.add_handler(text_reception.handler)
     updater.start_polling()
     updater.idle()
