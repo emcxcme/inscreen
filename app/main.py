@@ -9,6 +9,7 @@ from app.handlers import (
     help,
     image_reception,
     new_member,
+    pin,
     start,
     text_reception,
 )
@@ -27,6 +28,7 @@ def main() -> None:
     dispatcher.add_handler(group_registration.handler)
     dispatcher.add_handler(image_reception.handler)
     dispatcher.add_handler(new_member.handler)
+    dispatcher.add_handler(pin.handler)
     dispatcher.add_handler(start.handler)
     dispatcher.add_handler(text_reception.handler)
     updater.start_polling()

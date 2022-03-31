@@ -1,5 +1,6 @@
 ABOUT = "about"
 FORWARD = "forward"
 HELP = "help"
+PIN = "pin"
 REGISTER = "register"
 START = "start"
