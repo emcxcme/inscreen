@@ -3,6 +3,7 @@ from telegram.ext import PicklePersistence, Updater
 from app.config import CONFIG
 from app.configs import APP_PERSISTENCE_FILE, INSCREEN_TOKEN
 from app.handlers import (
+    about,
     forward,
     group_registration,
     help,
@@ -21,6 +22,7 @@ def main() -> None:
     pickle_persistence = PicklePersistence(CONFIG[APP_PERSISTENCE_FILE])
     updater = Updater(CONFIG[INSCREEN_TOKEN], persistence=pickle_persistence)
     dispatcher = updater.dispatcher
+    dispatcher.add_handler(about.handler)
     dispatcher.add_handler(forward.handler)
     dispatcher.add_handler(group_registration.handler)
     dispatcher.add_handler(image_reception.handler)

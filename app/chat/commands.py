@@ -1,3 +1,4 @@
+ABOUT = "about"
 FORWARD = "forward"
 HELP = "help"
 REGISTER = "register"
