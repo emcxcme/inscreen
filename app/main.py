@@ -1,6 +1,7 @@
 import logging
 from telegram.ext import PicklePersistence, Updater
 from app.config import CONFIG
+from app.configs import APP_PERSISTENCE_FILE, INSCREEN_TOKEN
 from app.handlers import (
     forward,
     group_registration,
@@ -16,8 +17,8 @@ logging.basicConfig(
 
 
 def main() -> None:
-    pickle_persistence = PicklePersistence(CONFIG["PICKLE_FILE"])
-    updater = Updater(CONFIG["INSCREEN_TOKEN"], persistence=pickle_persistence)
+    pickle_persistence = PicklePersistence(CONFIG[APP_PERSISTENCE_FILE])
+    updater = Updater(CONFIG[INSCREEN_TOKEN], persistence=pickle_persistence)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(forward.handler)
     dispatcher.add_handler(group_registration.handler)

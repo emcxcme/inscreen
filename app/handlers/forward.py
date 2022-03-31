@@ -4,15 +4,14 @@ from app.chat.commands import FORWARD
 from app.chat.message.template import greet_user
 from app.chat.types import GROUP, PRIVATE, SUPERGROUP
 from app.config import CONFIG
-from app.saves import GROUP_MANAGER
-from app.chat.group import GroupManager
+from app.configs import ADMIN_IDS
 
 
 def forward(update: Update, context: CallbackContext) -> None:
     chat = update.message.chat
     user = update.message.from_user
     if chat.type == PRIVATE:
-        if user.id in CONFIG["ADMIN_IDS"]:
+        if user.id in CONFIG[ADMIN_IDS]:
             return
         text = (
             greet_user(user.id, user.first_name)

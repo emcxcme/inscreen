@@ -5,6 +5,7 @@ from app.chat.group import Manager
 from app.chat.message.template import greet_user
 from app.chat.types import GROUP, SUPERGROUP
 from app.config import CONFIG
+from app.configs import ADMIN_IDS
 
 
 def register_group(update: Update, context: CallbackContext) -> None:
@@ -22,7 +23,7 @@ def register_group(update: Update, context: CallbackContext) -> None:
             )
         update.message.reply_text(text, "html")
         return
-    if user.id in CONFIG["ADMIN_IDS"]:
+    if user.id in CONFIG[ADMIN_IDS]:
         return
     text = (
         greet_user(user.id, user.first_name)
