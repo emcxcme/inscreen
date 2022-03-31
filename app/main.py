@@ -12,6 +12,7 @@ from app.handlers import (
     pin,
     start,
     text_reception,
+    unpin,
 )
 
 logging.basicConfig(
@@ -31,5 +32,6 @@ def main() -> None:
     dispatcher.add_handler(pin.handler)
     dispatcher.add_handler(start.handler)
     dispatcher.add_handler(text_reception.handler)
+    dispatcher.add_handler(unpin.handler)
     updater.start_polling()
     updater.idle()
